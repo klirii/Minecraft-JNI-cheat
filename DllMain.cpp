@@ -70,14 +70,28 @@ void Fly() {
 	env->SetBooleanField(capabilities, fid, true); // Устанавливаем переменную allowFlying на true
 }
 
+float getFlySpeed() {
+	jmethodID mid = env->GetMethodID(env->GetObjectClass(capabilities), "a", "()F"); // Получаем адрес метода getFlySpeed
+	return env->CallFloatMethod(capabilities, mid); // Вызываем функцию и получаем скорость флая
+}
+
+void setFlySpeed(float speed) {
+	jmethodID mid = env->GetMethodID(env->GetObjectClass(capabilities), "a", "(F)V"); // Получаем адрес метода setFlySpeed
+	env->CallVoidMethod(capabilities, mid, 0.05 * speed); // Вызываем его и устанавливаем скорость флая
+}
+
 BOOL WINAPI DllMain(HINSTANCE handle, DWORD reason, LPVOID reserved) {
 	switch (reason) {
 	case DLL_PROCESS_ATTACH:
 		AllocConsole(); // Выделяем консоль
 		freopen("CONOUT$", "w", stdout); // Выделяем поток stdout для консоли
+
 		getEnv(); // Получаем JNIEnv*
 		cout << "[DEBUG] JNIEnv*: " << (LPVOID)env << endl;
 		initObjects(); // Инициализируем объекты для работы
+
 		Fly(); // Делаем fly
+		setFlySpeed(2);
+		cout << "[DEBUG] Current fly speed: " << getFlySpeed() << endl;
 	}
 }
