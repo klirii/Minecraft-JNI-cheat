@@ -1,6 +1,6 @@
 # Minecraft-JNI-cheat
 An example of creating a simple Minecraft cheat via JNI.
-# This code is written for version 1.8.8 without OptiFine!
+# This code is for version 1.8.8 without OptiFine.
 
 # Dependencies:
 JDK 8 - https://www.oracle.com/ru/java/technologies/javase/javase8-archive-downloads.html
