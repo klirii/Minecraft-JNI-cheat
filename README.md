@@ -1,12 +1,10 @@
 # Minecraft-JNI-cheat
-Пример создания простого чита для Minecraft через JNI.
-# Данный код предназначен для версии 1.8.8 без OptiFine!
+An example of creating a simple Minecraft cheat via JNI.
+# This code is for version 1.8.8 without OptiFine!
 
-# Зависимости:
+# Dependencies:
 JDK 8 - https://www.oracle.com/ru/java/technologies/javase/javase8-archive-downloads.html
-# Необходимо включить в ваш проект:
+# You need to include in your project:
 jdk_path\include
-
 jdk_path\include\win32
-
 jdk_path\include\win32\bridge
